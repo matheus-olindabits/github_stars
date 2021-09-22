@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { AuthService } from './core/auth/auth.service';
 import { AuthGuard } from './core/auth/auth.guard';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AuthGuard } from './core/auth/auth.guard';
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule,
-    UsuarioModule
+    UsuarioModule,
+    SharedModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

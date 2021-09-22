@@ -1,0 +1,21 @@
+<div class="col-md-6 mx-auto mt-5">
+    <form [formGroup]="formularioBusca" (submit)="validarFormulario()">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="busca" [ngStyle]="(form.busca.status == 'INVALID' && formularioInvalido) ? {'border-color':'red','height': '50px'} : {'height': '50px'}" placeholder="Pesquise pelo nome ou repositório">
+            <button class="btn btn-primary" type="submit" id="button-addon2">Buscar</button>
+        </div>
+
+        <div class="col-md-12 text-left" *ngIf="form.busca.dirty && form.busca.hasError('required') || form.busca.hasError('required') && formularioInvalido">
+            <app-erro-formulario [mensagemErro]="'Digite um nome ou repositório para a busca'"></app-erro-formulario>
+        </div>
+
+        <div *ngIf="loading">
+            <h4>Processando ...</h4>
+        </div>
+    </form>
+</div>
+
+
+<ng-template #carregando>
+    <h4>Processando ...</h4>
+</ng-template>

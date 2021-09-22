@@ -1,0 +1,17 @@
+<main class="form-signin mt-5">
+    <form [formGroup]="formularioLogin" (submit)="validarFormulario()">
+      <h1 class="h3 mb-3 fw-normal">LOGIN</h1>
+  
+      <div class="form-floating">
+        <input type="text" class="form-control" formControlName="token" [ngStyle]="(form.token.status == 'INVALID' && formularioInvalido) ? {'border-color':'red','height': '50px'} : {'height': '50px'}" >
+        <label for="floatingInput">Insira seu id token do github</label>
+      </div>
+
+      <small class="form-text texto-erro"*ngIf="(form.token.dirty || formularioInvalido) && form.token.hasError('required')">
+        Digite um token
+        <i class="fa fa-exclamation-circle ml-2" aria-hidden="true"></i>
+      </small>
+  
+      <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Entrar</button>
+    </form>
+  </main>
