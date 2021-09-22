@@ -22,7 +22,7 @@ export function createApollo(httpLink: HttpLink) {
     } else {
       return {
         headers: {
-          Authorization: `JWT ${token}`
+          Authorization: `Bearer ${token}`
         }
       };
     }

@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { UsuarioModule } from './modules/usuario/usuario.module';
+import { AuthService } from './core/auth/auth.service';
+import { AuthGuard } from './core/auth/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,9 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    UsuarioModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
