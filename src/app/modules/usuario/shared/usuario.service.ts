@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
-import { USER } from './models/user-graphql';
+import { userQuery, starQuery } from './models/user-graphql';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,16 @@ export class UsuarioService {
   
   buscarNomeOuRepositorio(nome: String): Observable<any>{
     return this.apollo.watchQuery<any>({
-      query: USER,
+      query: userQuery(nome),
+      errorPolicy: 'all'
     }).valueChanges;
   }
+
+  favoritarRepositorio(idusuario: String, idRepositorio: String): Observable<any>{
+    return this.apollo.mutate<any>({
+      mutation: starQuery(idusuario, idRepositorio),
+      errorPolicy: 'all'
+    });
+  }
+
 }

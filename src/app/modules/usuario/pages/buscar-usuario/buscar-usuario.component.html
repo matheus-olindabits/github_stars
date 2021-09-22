@@ -1,6 +1,13 @@
 <div class="container">
     <!-- COMPONENTE PARA REALIZAR A BUSCA -->
-    <app-input-busca (retornoBusca)="listarBusca()"></app-input-busca>
+    <ng-container>
+        <app-input-busca (retornoBusca)="listarBusca($event)"></app-input-busca>
+    </ng-container>
 
-
+    <!-- COMPONENTE PARA LISTAR A BUSCA -->
+    <ng-container *ngIf="usuarios">
+        <ng-container *ngIf="usuarios.user">
+            <app-listagem-busca [usuarios]="usuarios"></app-listagem-busca>
+        </ng-container>
+    </ng-container>
 </div>

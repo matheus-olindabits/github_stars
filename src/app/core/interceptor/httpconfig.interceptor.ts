@@ -10,13 +10,12 @@ import {
 
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { ErroService } from '../services/validacoes/erro.service';
 import { Location } from "@angular/common";
 import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
-    constructor(private ErroService: ErroService, private location: Location) {}
+    constructor(private location: Location) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -36,7 +35,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
                     status: error.status
                 };
 
-                this.ErroService.retornoErro(error);
+                //this.ErroService.retornoErro(error);
 
                 return throwError(error);
         }));
@@ -44,7 +43,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
     validarSessao(request: HttpRequest<any>){
 
-        let sessao = localStorage.getItem('sessao');
+        let sessao = localStorage.getItem('token');
 
         // Apenas funciona nas rotas que estiverem com o usuário logado
         if(sessao){

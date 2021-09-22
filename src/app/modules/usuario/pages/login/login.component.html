@@ -7,10 +7,9 @@
         <label for="floatingInput">Insira seu id token do github</label>
       </div>
 
-      <small class="form-text texto-erro"*ngIf="(form.token.dirty || formularioInvalido) && form.token.hasError('required')">
-        Digite um token
-        <i class="fa fa-exclamation-circle ml-2" aria-hidden="true"></i>
-      </small>
+      <div class="col-md-12 text-left" *ngIf="(form.token.dirty || formularioInvalido) && form.token.hasError('required')">
+        <app-erro-formulario [mensagemErro]="'Digite um token'"></app-erro-formulario>
+      </div>
   
       <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Entrar</button>
     </form>

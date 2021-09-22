@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../shared/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-input-busca',
@@ -20,7 +21,7 @@ export class InputBuscaComponent implements OnInit {
     return this.formularioBusca.controls;
   }
 
-  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService) { }
+  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -48,11 +49,11 @@ export class InputBuscaComponent implements OnInit {
     this.loading = true;
     this.usuarioService.buscarNomeOuRepositorio(this.form.busca.value)
     .subscribe((data) => {
-      console.log(data);
-      this.usuarioService.usuariosRepositorios = data;
-      this.loading = false;
-      this.retornoBusca.emit();
-    }).add(() => {
+      if(data.data.user){
+        this.retornoBusca.emit(data);
+      }else{
+        this.toastr.error(`Usuário não encontrado`, 'Ops!')
+      }
       this.loading = false;
     });
   }

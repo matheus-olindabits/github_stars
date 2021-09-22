@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-listagem-busca',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListagemBuscaComponent implements OnInit {
 
+  @Input() usuarios: any;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

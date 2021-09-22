@@ -1,0 +1,25 @@
+<ng-conatiner *ngIf="repositorios.length > 0 else listaVazia">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Repositório</th>
+            <th scope="col">Detalhe</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let repo of repositorios;let i = index">
+            <td>{{repo.name}}</td>
+
+            <td *ngIf="idUsuario"><button class="btn btn-sm btn-secondary" (click)="favoritarRepositorio(repo.id)">Favoritar <i class="fa fa-star ml-2" aria-hidden="true"></i>
+            </button></td>
+            <td *ngIf="!idUsuario">---</td>
+        </tr>
+        </tbody>
+    </table>
+</ng-conatiner>
+
+<ng-template #listaVazia>
+    <div class="text-center">
+        <h4>Não possui lista de repositório estrelado</h4>
+    </div>
+</ng-template>

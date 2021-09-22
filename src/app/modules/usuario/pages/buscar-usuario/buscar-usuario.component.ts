@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarUsuarioComponent implements OnInit {
 
+  usuarios: any;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  listarBusca(){
-    //alert('opa');
+  listarBusca(listagem: any){
+    this.usuarios = listagem.data;
   }
 
 }

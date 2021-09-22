@@ -1,0 +1,21 @@
+
+<div class="album">
+    <div class="container">
+
+        <div class="col">
+        <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="usuario.user.avatarUrl" *ngIf="usuario.user">
+
+            <div class="card-body">
+                <p class="card-text" *ngIf="usuario.user.name">{{usuario.user.name}}</p>
+                <p class="card-text" *ngIf="!usuario.user.name">nome não encontrado</p>
+
+                <p class="card-text" *ngIf="usuario.user.bio">{{usuario.user.bio}}</p>
+                <p class="card-text" *ngIf="usuario.user.email"><i class="fa fa-envelope-o"></i> {{usuario.user.email}}</p>
+                <p class="card-text" *ngIf="usuario.user.location"><i class="fa fa-map-marker"></i> {{usuario.user.location}}</p>
+                <p class="card-text" *ngIf="usuario.user.url"><i class="fa fa-github" aria-hidden="true"></i> {{usuario.user.url}}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

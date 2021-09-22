@@ -7,13 +7,17 @@ import { BuscarUsuarioComponent } from './pages/buscar-usuario/buscar-usuario.co
 import { InputBuscaComponent } from './components/input-busca/input-busca.component';
 import { ListagemBuscaComponent } from './components/listagem-busca/listagem-busca.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { UsuarioProfileComponent } from './components/usuario-profile/usuario-profile.component';
+import { RepositorioEstreladoComponent } from './components/repositorio-estrelado/repositorio-estrelado.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     BuscarUsuarioComponent,
     InputBuscaComponent,
-    ListagemBuscaComponent
+    ListagemBuscaComponent,
+    UsuarioProfileComponent,
+    RepositorioEstreladoComponent
   ],
   imports: [
     CommonModule,

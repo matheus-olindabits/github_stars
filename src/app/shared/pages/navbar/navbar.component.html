@@ -6,7 +6,7 @@
 
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/usuario/login" style="cursor: pointer;">Sair</a>
+          <a nohref class="nav-link" (click)="myRoute.navigate(['/usuario/login'])" style="cursor: pointer;">Sair</a>
         </li>
       </ul>
 

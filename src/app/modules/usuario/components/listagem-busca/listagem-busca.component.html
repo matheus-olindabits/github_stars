@@ -1,1 +1,14 @@
-<p>listagem-busca works!</p>
+<div class="col-md-12 mt-5">
+    <div class="row">
+        
+        <!-- COMPONENTE PERFIL USUÁRIO -->
+        <div class="col-md-4 mt-5 mb-5">
+            <app-usuario-profile [usuario]="usuarios"></app-usuario-profile>
+        </div>
+
+        <!-- COMPONENTE REPOSITÓRIO ESTRELADOS -->
+        <div class="col-md-8 mt-5">
+            <app-repositorio-estrelado [repositorios]="usuarios.user.starredRepositories.nodes" [idUsuario]="usuarios.user.id"></app-repositorio-estrelado>
+        </div>
+    </div>
+</div>
